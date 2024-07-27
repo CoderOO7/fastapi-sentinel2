@@ -60,3 +60,58 @@ API to query sentinel2 data
 
 It serve the api on http://localhost:8000 and for api docs visit http://localhost:8000/docs
  
+
+# API Testing
+To test the sentinel api to query ndvi data. Run below curl in terminal, once server started successfully.
+```bash
+curl -X 'POST' \
+  'http://localhost:8000/api/v1/sentinel2/query' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "timestamp": "2023-01-01",
+  "geojson_polygon": {
+    "coordinates": [
+      [
+        [
+          74.66218437999487,
+          19.46556170905807
+        ],
+        [
+          74.6629598736763,
+          19.466339343697722
+        ],
+        [
+          74.6640371158719,
+          19.4667885366414
+        ],
+        [
+          74.66395296156406,
+          19.46614872872264
+        ],
+        [
+          74.66376889497042,
+          19.466150941501425
+        ],
+        [
+          74.66369077563286,
+          19.46577508478787
+        ],
+        [
+          74.6635865047574,
+          19.465278788212864
+        ],
+        [
+          74.66282073408365,
+          19.46540270444271
+        ],
+        [
+          74.66218437999487,
+          19.46556170905807
+        ]
+      ]
+    ],
+    "type": "Polygon"
+  }
+}'
+```
